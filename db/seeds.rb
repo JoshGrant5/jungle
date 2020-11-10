@@ -96,7 +96,7 @@ cat2.products.create!({
   name:  'Hotdog Slicer',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics2.jpg'),
-  quantity: 3,
+  quantity: 0,
   price: 26.00
 })
 
@@ -120,7 +120,7 @@ cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
-  quantity: 2,
+  quantity: 0,
   price: 987.65
 })
 
