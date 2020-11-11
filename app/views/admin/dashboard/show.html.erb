@@ -1,13 +1,29 @@
 <h1>Admin Dashboard</h1>
 
 <h3>Number of Products: <%= @product_count.length %></h3>
-<ul class="list-group list-group-flush">
-<% @product_count.each do |product| %>
-  <li class="list-group-item">
-    <a href="/products/<%= product.id %>"><%= product.name %> </a>
-  </li>
-<% end %>
-</ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @product_count.each do |product| %>
+      <tr>
+        <td><a href="/products/<%= product.id %>"><%= product.name %> </a></td>
+        <td><%= product.quantity %></td>
+      </tr>
+  <% end %>
+ </tbody>
+ <tfoot>
+  <tr>
+    <th>Total Inventory:</th>
+    <th><%= @total_inventory %></th>
+  </tr>
+  </tfoot>
+</table>
 
 <h3>Number of Caterogies: <%= @category_count.length %></h3>
 <ul class="list-group list-group-flush">
