@@ -1,2 +1,11 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1>Admin Dashboard</h1>
+
+<h1>Number of Products: <%= @product_count.length %></h1>
+<% @product_count.each do |product| %>
+  <h4> <%= product.name %> </h4>
+<% end %>
+
+<h1>Number of Caterogies: <%= @category_count.length %></h1>
+<% @category_count.each do |category| %>
+  <h4> <%= category.name %> </h4>
+<% end %>
