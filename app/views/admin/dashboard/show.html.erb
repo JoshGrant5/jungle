@@ -1,18 +1,18 @@
 <h1>Admin Dashboard</h1>
 
-<h1>Number of Products: <%= @product_count.length %></h1>
-<ul>
+<h3>Number of Products: <%= @product_count.length %></h3>
+<ul class="list-group list-group-flush">
 <% @product_count.each do |product| %>
-  <li>
+  <li class="list-group-item">
     <a href="/products/<%= product.id %>"><%= product.name %> </a>
   </li>
 <% end %>
 </ul>
 
-<h1>Number of Caterogies: <%= @category_count.length %></h1>
-<ul>
+<h3>Number of Caterogies: <%= @category_count.length %></h3>
+<ul class="list-group list-group-flush">
 <% @category_count.each do |category| %>
-  <li>
+  <li class="list-group-item">
     <a href="/categories/<%= category.id %>"><%= category.name %> </a>
   </li>
 <% end %>
