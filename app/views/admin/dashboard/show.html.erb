@@ -1,11 +1,19 @@
 <h1>Admin Dashboard</h1>
 
 <h1>Number of Products: <%= @product_count.length %></h1>
+<ul>
 <% @product_count.each do |product| %>
-  <h4> <%= product.name %> </h4>
+  <li>
+    <a href="/products/<%= product.id %>"><%= product.name %> </a>
+  </li>
 <% end %>
+</ul>
 
 <h1>Number of Caterogies: <%= @category_count.length %></h1>
+<ul>
 <% @category_count.each do |category| %>
-  <h4> <%= category.name %> </h4>
+  <li>
+    <a href="/categories/<%= category.id %>"><%= category.name %> </a>
+  </li>
 <% end %>
+</ul
