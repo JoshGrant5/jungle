@@ -16,6 +16,13 @@ class OrdersController < ApplicationController
     end
   end
   helper_method :order_subtotal_cents
+    
+  def savings 
+    sale = Sale.active
+    sale_price = sale ? @products.map {|entry| (entry[:product].price_cents / (sale[0].percent_off * 0.1) * entry[:quantity])}.sum : 0
+    ((@products.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum) - sale_price) / 100.0
+  end
+  helper_method :savings
 
   def create
     charge = perform_stripe_charge

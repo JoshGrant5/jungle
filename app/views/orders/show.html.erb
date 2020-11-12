@@ -20,7 +20,6 @@
           </tr>
         </thead>
         <tbody>
-     
           <% @products.each do |item| %>
             <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
           <% end %>
@@ -39,5 +38,11 @@
     </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+
+  <% if active_sale? %>
+    <div class="order-summary jumbotron">
+      <h4>You saved $<%= number_with_precision(savings, precision: 2) %>!</h4>
+    </div>
+  <% end %>
 
 </section>
