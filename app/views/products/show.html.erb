@@ -23,8 +23,8 @@
           <dt>Price</dt>
           <% if active_sale? %>
             <% get_sale_info %>
-            <dd>$<%= @product.price / (@sale_discount * 0.1) %></dd>
             <dd class='sale-price'><span>$<%= @product.price %></span></dd>
+            <dd>$<%= @product.price / (@sale_discount * 0.1) %></dd>
           <% else %>
             <dd>$<%= @product.price %></dd>
           <% end %>

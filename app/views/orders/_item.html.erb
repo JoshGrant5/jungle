@@ -8,12 +8,24 @@
     <p><%= product.description %></p>
   </td>
   <td>
+  <% if active_sale? %>
+    <% get_sale_info %>
+    <span class='sale-price'>$<%= product.price %></span>
+    $<%= product.price / (@sale_discount * 0.1) %>
+  <% else %>
     $<%= product.price %>
+  <% end %>
   </td>
   <td>
     <%= quantity %>
   </td>
   <td>
+  <% if active_sale? %>
+    <% get_sale_info %>
+    <span class='sale-price'>$<%= product.price * quantity %></span>
+    $<%= (product.price / (@sale_discount * 0.1)) * quantity %>
+  <% else %>
     $<%= product.price * quantity %>
+  <% end %>
   </td>
 </tr>

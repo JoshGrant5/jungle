@@ -2,11 +2,18 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @line_items = LineItem.where( order_id: @order.id)
-    @products = @line_items.map { |product| { product: Product.find(product[:product_id]), quantity: product[:quantity] } }
+    sale = Sale.active
+    discount = sale ? (sale[0].percent_off * 0.1) : 0
+    @products = @line_items.map { |product| { product: Product.find(product[:product_id]), percent_off: discount, quantity: product[:quantity] } }
   end
 
   def order_subtotal_cents
-    @products.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
+    sale = Sale.active
+    if sale 
+      @products.map {|entry| (entry[:product].price_cents / (sale[0].percent_off * 0.1) * entry[:quantity])}.sum
+    else 
+      @products.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
+    end
   end
   helper_method :order_subtotal_cents
 
@@ -35,26 +42,32 @@ class OrdersController < ApplicationController
   def perform_stripe_charge
     Stripe::Charge.create(
       source:      params[:stripeToken],
-      amount:      cart_subtotal_cents,
+      amount:      cart_subtotal_cents.round,
       description: "Josh Grant's Jungle Order",
       currency:    'cad'
     )
   end
 
   def create_order(stripe_charge)
+
     order = Order.new(
       email: params[:stripeEmail],
-      total_cents: cart_subtotal_cents,
+      total_cents: cart_subtotal_cents.round,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
+
+    sale = Sale.active
+
     enhanced_cart.each do |entry|
       product = entry[:product]
       quantity = entry[:quantity]
+      price = sale ? product.price / (sale[0].percent_off * 0.1) : product.price
+
       order.line_items.new(
         product: product,
         quantity: quantity,
-        item_price: product.price,
-        total_price: product.price * quantity
+        item_price: price,
+        total_price: price * quantity
       )
     end
     order.save!

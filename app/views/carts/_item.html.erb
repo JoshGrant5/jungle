@@ -8,7 +8,13 @@
     <p><%= product.description %></p>
   </td>
   <td>
-    $<%= product.price %>
+  <% if active_sale? %>
+    <% get_sale_info %>
+    <span class='sale-price'>$<%= product.price %></span>
+    <span>$<%= product.price / (@sale_discount * 0.1) %></span>
+  <% else %>
+    <span>$<%= product.price %></span>
+  <% end %>
   </td>
   <td>
     <%= button_to remove_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-danger' do %> - <% end %>
@@ -16,6 +22,11 @@
     <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-success' do %> + <% end %>
   </td>
   <td>
+  <% if active_sale? %>
+    <% get_sale_info %>
+    $<%= product.price * quantity / (@sale_discount * 0.1) %>
+  <% else %>
     $<%= product.price * quantity %>
+  <% end %>
   </td>
 </tr>
