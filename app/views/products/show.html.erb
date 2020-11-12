@@ -21,7 +21,13 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd>$<%= @product.price %></dd>
+          <% if active_sale? %>
+            <% get_sale_info %>
+            <dd>$<%= @product.price / (@sale_discount * 0.1) %></dd>
+            <dd class='sale-price'><span>$<%= @product.price %></span></dd>
+          <% else %>
+            <dd>$<%= @product.price %></dd>
+          <% end %>
         </dl>
       </div>
     </div>

@@ -13,7 +13,7 @@
   <main class="container">
 
     <% if active_sale? %>
-    <% sale_info %>
+    <% get_sale_info %>
       <p class='alert alert-info'>
         There's an active sale going on! <strong><%= @sale_name %>: Everything is <%= @sale_discount %>% off!</strong>
       <p>

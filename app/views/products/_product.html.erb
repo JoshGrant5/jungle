@@ -24,7 +24,15 @@
     <% end %>
   </footer>
 
-  <aside class="price">
-    <%= humanized_money_with_symbol product.price %>
-  </aside>
+  <% if active_sale? %>
+    <% get_sale_info %>
+    <aside class="price sale-price">
+      <%= humanized_money_with_symbol product.price / (@sale_discount * 0.1) %>
+      <span><%= humanized_money_with_symbol product.price %></span>
+    </aside>
+  <% else %>
+    <aside class="price">
+      <%= humanized_money_with_symbol product.price %>
+    </aside>
+  <% end %>
 </article>
