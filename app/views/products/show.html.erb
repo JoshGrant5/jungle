@@ -24,7 +24,7 @@
           <% if active_sale? %>
             <% get_sale_info %>
             <dd class='sale-price'><span>$<%= @product.price %></span></dd>
-            <dd>$<%= @product.price / (@sale_discount * 0.1) %></dd>
+            <dd>$<%= @product.price * (1.00 - (@sale_discount * 0.01)) %></dd>
           <% else %>
             <dd>$<%= @product.price %></dd>
           <% end %>

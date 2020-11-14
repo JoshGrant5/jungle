@@ -3,14 +3,14 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @line_items = LineItem.where( order_id: @order.id)
     sale = Sale.active
-    discount = sale ? (sale[0].percent_off * 0.1) : 0
+    discount = sale ? sale[0].percent_off : 0
     @products = @line_items.map { |product| { product: Product.find(product[:product_id]), percent_off: discount, quantity: product[:quantity] } }
   end
 
   def order_subtotal_cents
     sale = Sale.active
     if sale 
-      @products.map {|entry| (entry[:product].price_cents / (sale[0].percent_off * 0.1) * entry[:quantity])}.sum
+      @products.map {|entry| (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))) * entry[:quantity]}.sum
     else 
       @products.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
     end
@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
     
   def savings 
     sale = Sale.active
-    sale_price = sale ? @products.map {|entry| (entry[:product].price_cents / (sale[0].percent_off * 0.1) * entry[:quantity])}.sum : 0
+    sale_price = sale ? @products.map {|entry| (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))) * entry[:quantity]}.sum : 0
     ((@products.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum) - sale_price) / 100.0
   end
   helper_method :savings
@@ -68,7 +68,7 @@ class OrdersController < ApplicationController
     enhanced_cart.each do |entry|
       product = entry[:product]
       quantity = entry[:quantity]
-      price = sale ? product.price / (sale[0].percent_off * 0.1) : product.price
+      price = sale ? product.price * (1.00 - (sale[0].percent_off * 0.01)) : product.price
 
       order.line_items.new(
         product: product,

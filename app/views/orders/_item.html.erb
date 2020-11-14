@@ -11,7 +11,7 @@
   <% if active_sale? %>
     <% get_sale_info %>
     <span class='sale-price'>$<%= product.price %></span>
-    $<%= product.price / (@sale_discount * 0.1) %>
+    $<%= product.price * (1.00 - (@sale_discount * 0.01)) %>
   <% else %>
     $<%= product.price %>
   <% end %>
@@ -23,7 +23,7 @@
   <% if active_sale? %>
     <% get_sale_info %>
     <span class='sale-price'>$<%= product.price * quantity %></span>
-    $<%= (product.price / (@sale_discount * 0.1)) * quantity %>
+    $<%= (product.price * (1.00 - (@sale_discount * 0.01))) * quantity %>
   <% else %>
     $<%= product.price * quantity %>
   <% end %>

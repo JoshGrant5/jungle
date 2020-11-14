@@ -27,7 +27,7 @@
   <% if active_sale? %>
     <% get_sale_info %>
     <aside class="price sale-price">
-      <%= humanized_money_with_symbol product.price / (@sale_discount * 0.1) %>
+      <%= humanized_money_with_symbol product.price * (1.00 - (@sale_discount * 0.01)) %>
       <span><%= humanized_money_with_symbol product.price %></span>
     </aside>
   <% else %>
