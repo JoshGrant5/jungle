@@ -132,5 +132,27 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# SALES 
+
+sale1 = Sale.create({
+  name: 'HOLIDAY SALE',
+  percent_off: 35,
+  starts_on: 'Dec 5, 2020',
+  ends_on: 'Jan 3, 2021'
+})
+
+sale2 = Sale.create({
+  name: 'Thanksgiving Sale',
+  percent_off: 15,
+  starts_on: 'Oct 5, 2020',
+  ends_on: 'Oct 20, 2020'
+})
+
+sale3 = Sale.create({
+  name: 'ABSOLUTE MADNESS SALE!!!',
+  percent_off: 50,
+  starts_on: 'Nov 10, 2020',
+  ends_on: 'Nov 21, 2020'
+})
 
 puts "DONE!"
