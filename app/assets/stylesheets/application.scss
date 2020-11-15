@@ -19,3 +19,11 @@ form.button_to {
 .sale-price span, span.sale-price {
   text-decoration: line-through;
 }
+
+.nav > li > a {
+  display: inline-block;
+}
+
+.alert-info {
+  margin-top: 2em
+}
