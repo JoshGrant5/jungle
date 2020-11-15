@@ -82,6 +82,16 @@ RSpec.describe User, type: :model do
       authentication = User.authenticate_with_credentials(user.email, 'testytesttest')
       expect(authentication).to eq(nil)
     end
+    it 'returns a user instance even extra whitespaces are typed' do
+      user.save
+      expect(User.authenticate_with_credentials('   testemail@test.ca', user.password)).to eq(user)
+      expect(User.authenticate_with_credentials('testemail@test.ca   ', user.password)).to eq(user)
+    end
+    it 'returns a user instance even if visitor uses wrong casing for their email' do
+      user.save
+      expect(User.authenticate_with_credentials('TestEmaiL@teSt.ca', user.password)).to eq(user)
+      expect(User.authenticate_with_credentials('TESTEMAIL@TEST.CA', user.password)).to eq(user)
+    end
   end
   
 end
