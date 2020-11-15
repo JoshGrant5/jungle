@@ -17,16 +17,17 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
   end
 
   scenario "clicking 'Add to Cart' button changes  'My Cart (0)' to 'My Cart (1)'" do
-    
+
     visit root_path
     expect(page).to have_css 'article.product', count: 10
 
     find_button('Add', match: :first).click
 
-    #Debug
-    sleep 1
-    save_screenshot
+    #DEBUG
+    # sleep 1
+    # save_screenshot
 
+    #VERIFY
     expect(page).to have_content 'My Cart (1)'
     expect(page).to have_link 'My Cart (1)', href: '/cart'
 
