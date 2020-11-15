@@ -1,9 +1,24 @@
-<h1>Login</h1>
 
-<%= form_tag '/login' do %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h1 class="card-title text-center">Login</h1>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+          <%= form_for :session, url: '/login' do |f| %>
 
-<% end %>
+            <div class="form-label-group">
+              Email: <%= f.text_field :email, class: 'form-control', required: 'required' %>
+            </div>
+            <div class="form-label-group">
+              Password: <%= f.password_field :password, class: 'form-control', required: 'required' %>
+            </div>
+            <%= submit_tag "Submit", class: 'btn btn-lg btn-primary btn-block' %>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
