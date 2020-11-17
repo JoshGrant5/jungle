@@ -21,6 +21,28 @@ end
 
 # Let's do this ...
 
+# USERS
+
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+user1 = User.create({
+  first_name: 'Ricky',
+  last_name: 'Bobby',
+  email: 'excellence@test.com',
+  password: 'password',
+  password_confirmation: 'password'
+})
+
+user2 = User.create({
+  first_name: 'Karen',
+  last_name: 'Shmaren',
+  email: 'yikes@test.com',
+  password: 'password',
+  password_confirmation: 'password'
+})
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -35,7 +57,7 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
-cat1.products.create!({
+prod1 = cat1.products.create({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -43,7 +65,7 @@ cat1.products.create!({
   price: 64.99
 })
 
-cat1.products.create!({
+prod2 = cat1.products.create({
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
@@ -51,7 +73,7 @@ cat1.products.create!({
   price: 124.99
 })
 
-cat1.products.create!({
+prod3 = cat1.products.create({
   name:  'Hipster Hat',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel3.jpg'),
@@ -59,7 +81,7 @@ cat1.products.create!({
   price: 34.49
 })
 
-cat1.products.create!({
+prod4 = cat1.products.create({
   name:  'Hipster Socks',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel4.jpg'),
@@ -67,7 +89,7 @@ cat1.products.create!({
   price: 25.00
 })
 
-cat1.products.create!({
+prod5 = cat1.products.create({
   name:  'Russian Spy Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
@@ -75,7 +97,7 @@ cat1.products.create!({
   price: 1_225.00
 })
 
-cat1.products.create!({
+prod6 = cat1.products.create({
   name:  'Human Feet Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel6.jpg'),
@@ -84,7 +106,7 @@ cat1.products.create!({
 })
 
 
-cat2.products.create!({
+prod7 = cat2.products.create({
   name:  'Modern Skateboards',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics1.jpg'),
@@ -92,7 +114,7 @@ cat2.products.create!({
   price: 164.49
 })
 
-cat2.products.create!({
+prod8 = cat2.products.create({
   name:  'Hotdog Slicer',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics2.jpg'),
@@ -100,7 +122,7 @@ cat2.products.create!({
   price: 26.00
 })
 
-cat2.products.create!({
+prod9 = cat2.products.create({
   name:  'World\'s Largest Smartwatch',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics3.jpg'),
@@ -108,7 +130,7 @@ cat2.products.create!({
   price: 2_026.29
 })
 
-cat3.products.create!({
+prod10 = cat3.products.create({
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
@@ -116,7 +138,7 @@ cat3.products.create!({
   price: 3_052.00
 })
 
-cat3.products.create!({
+prod11 = cat3.products.create({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
@@ -124,7 +146,7 @@ cat3.products.create!({
   price: 987.99
 })
 
-cat3.products.create!({
+prod12 = cat3.products.create({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
@@ -133,6 +155,10 @@ cat3.products.create!({
 })
 
 # SALES 
+
+puts "Re-creating Sales ..."
+
+Sale.destroy_all
 
 sale1 = Sale.create({
   name: 'HOLIDAY SALE',
@@ -153,6 +179,156 @@ sale3 = Sale.create({
   percent_off: 50,
   starts_on: 'Nov 10, 2020',
   ends_on: 'Nov 21, 2020'
+})
+
+# REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+review1 = prod1.reviews.create({
+  user_id: 1 
+  description: "They're playing the piano while flying in the plane."
+  rating: 4
+})
+
+review2 = prod1.reviews.create({
+  user_id: 2
+  description: "Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either."
+  rating: 2
+})
+
+review3 = prod2.reviews.create({
+  user_id: 1 
+  description: "Iguanas were falling out of the trees."
+  rating: 5
+})
+
+review4 = prod2.reviews.create({
+  user_id: 2
+  description: "Hit me with your pet shark!"
+  rating: 1
+})
+
+review5 = prod3.reviews.create({
+  user_id: 1 
+  description: "Her hair was windswept as she rode in the black convertible."
+  rating: 4
+})
+
+review6 = prod3.reviews.create({
+  user_id: 2
+  description: "He had accidentally hacked into his company's server."
+  rating: 3
+})
+
+review7 = prod4.reviews.create({
+  user_id: 1 
+  description: "The complicated school homework left the parents trying to help their kids quite confused."
+  rating: 4
+})
+
+review8 = prod4.reviews.create({
+  user_id: 2
+  description: "He uses onomatopoeia as a weapon of mental destruction."
+  rating: 3
+})
+
+review9 = prod5.reviews.create({
+  user_id: 1 
+  description: "He had reached the point where he was paranoid about being paranoid."
+  rating: 5
+})
+
+review10 = prod5.reviews.create({
+  user_id: 2
+  description: "If I don’t like something, I’ll stay away from it."
+  rating: 2
+})
+
+review11 = prod6.reviews.create({
+  user_id: 1 
+  description: "There was no telling what thoughts would come from the machine."
+  rating: 5
+})
+
+review12 = prod6.reviews.create({
+  user_id: 2
+  description: "Two more days and all his problems would be solved."
+  rating: 4
+})
+
+review13 = prod7.reviews.create({
+  user_id: 1 
+  description: "They're playing the piano while flying in the plane."
+  rating: 4
+})
+
+review14 = prod7.reviews.create({
+  user_id: 2
+  description: "Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either."
+  rating: 3
+})
+
+review15 = prod8.reviews.create({
+  user_id: 1 
+  description: "Iguanas were falling out of the trees."
+  rating: 3
+})
+
+review16 = prod8.reviews.create({
+  user_id: 2
+  description: "Hit me with your pet shark!"
+  rating: 1
+})
+
+review17 = prod9.reviews.create({
+  user_id: 1 
+  description: "Her hair was windswept as she rode in the black convertible."
+  rating: 4
+})
+
+review18 = prod9.reviews.create({
+  user_id: 2
+  description: "He had accidentally hacked into his company's server."
+  rating: 4
+})
+
+review19 = prod10.reviews.create({
+  user_id: 1 
+  description: "The complicated school homework left the parents trying to help their kids quite confused."
+  rating: 4
+})
+
+review20 = prod10.reviews.create({
+  user_id: 2
+  description: "He uses onomatopoeia as a weapon of mental destruction."
+  rating: 3
+})
+
+review21 = prod11.reviews.create({
+  user_id: 1 
+  description: "He had reached the point where he was paranoid about being paranoid."
+  rating: 5
+})
+
+review22 = prod11.reviews.create({
+  user_id: 2
+  description: "If I don’t like something, I’ll stay away from it."
+  rating: 4
+})
+
+review23 = prod12.reviews.create({
+  user_id: 1 
+  description: "There was no telling what thoughts would come from the machine."
+  rating: 5
+})
+
+review24 = prod12.reviews.create({
+  user_id: 2
+  description: "Two more days and all his problems would be solved."
+  rating: 4
 })
 
 puts "DONE!"
