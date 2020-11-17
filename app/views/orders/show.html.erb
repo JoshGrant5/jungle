@@ -6,7 +6,7 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h3>Thank you for your order!</h3>
   </div>
 
   <div class="panel panel-default items">
@@ -37,11 +37,12 @@
     </table>
   </div>
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
+  <%= link_to "Continue Shopping", root_path, class: 'continue btn btn-lg btn-primary' %>
+  <br>
   <% if active_sale? %>
+    
     <div class="order-summary jumbotron">
-      <h4>You saved $<%= number_with_precision(savings, precision: 2) %>!</h4>
+      <h3>You saved $<%= number_with_precision(savings, precision: 2) %>!</h3>
     </div>
   <% end %>
 
