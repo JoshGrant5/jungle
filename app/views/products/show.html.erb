@@ -56,6 +56,10 @@
             <dd><%= review[:rating] %> / 5</dd>
             <dt>Date Reviewed</dt>
             <dd><%= review[:created_at] %></dd>
+            <% if @user && @user == review[:user][0].id %>
+               <dd><%= link_to fa_icon('trash'), "/products/#{@product.id}/reviews/#{review[:id]}", method: :delete, class: 'btn btn-danger' %></dd>
+            <% end %>
+            <br>
           <% end %>
         </div>
       </div>
