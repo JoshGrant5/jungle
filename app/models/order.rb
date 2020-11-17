@@ -7,9 +7,22 @@ class Order < ActiveRecord::Base
 
   validates :stripe_charge_id, presence: true
 
+  before_create :check_stock
+
   after_create :adjust_stock
 
   private
+
+  def check_stock
+    self.line_items.each do |item|
+      product = Product.find_by(id: item.product_id)
+      if product.quantity < item.quantity
+        puts 'XXXXXXXXXXXXXXXXXXXXX'
+        errors.add(:line_items, "Not enough stock to fill order!")
+        return nil
+      end
+    end
+  end
 
   def adjust_stock
     self.line_items.each do |item|

@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
   def order_subtotal_cents
     sale = Sale.active
     if sale 
-      @products.map {|entry| (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))) * entry[:quantity]}.sum
+      @products.map {|entry| price = (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))).to_i
+        price * entry[:quantity]}.sum
     else 
       @products.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
     end
@@ -19,7 +20,9 @@ class OrdersController < ApplicationController
     
   def savings 
     sale = Sale.active
-    sale_price = sale ? @products.map {|entry| (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))) * entry[:quantity]}.sum : 0
+    sale_price = sale ? @products.map {|entry| price = (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))).to_i
+      price * entry[:quantity]}.sum 
+      : 0
     ((@products.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum) - sale_price) / 100.0
   end
   helper_method :savings
@@ -52,17 +55,19 @@ class OrdersController < ApplicationController
   def perform_stripe_charge
     Stripe::Charge.create(
       source:      params[:stripeToken],
-      amount:      cart_subtotal_cents.round,
-      description: "Josh Grant's Jungle Order",
+      amount:      cart_subtotal_cents,
+      description: "Jungle Order",
       currency:    'cad'
     )
   end
 
   def create_order(stripe_charge)
 
+    puts 'CARRRRRRT', cart_subtotal_cents
+
     order = Order.new(
       email: params[:stripeEmail],
-      total_cents: cart_subtotal_cents.round,
+      total_cents: cart_subtotal_cents,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
 

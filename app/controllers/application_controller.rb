@@ -27,7 +27,8 @@ class ApplicationController < ActionController::Base
   def cart_subtotal_cents
     sale = Sale.active
     if sale 
-      enhanced_cart.map {|entry| (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))) * entry[:quantity]}.sum
+      enhanced_cart.map {|entry| price = (entry[:product].price_cents * (1.00 - (sale[0].percent_off * 0.01))).to_i
+        price * entry[:quantity]}.sum
     else
       enhanced_cart.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
     end
