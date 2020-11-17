@@ -25,9 +25,9 @@
           <% @line_items.each do |item| %>
             <tr>
               <td><%= item.product.name %></td>
-              <td><%= number_with_precision(item[:item_price_cents].to_i / 100, precision: 2) %></td>
+              <td><%= humanized_money_with_symbol (item[:item_price_cents] * 0.01) %></td>
               <td><%= item[:quantity] %></td>
-              <td><%= number_with_precision(item[:total_price_cents].to_i / 100, precision: 2) %></td>
+              <td><%= humanized_money_with_symbol (item[:total_price_cents] * 0.01) %></td>
             </tr>
           <% end %>
         </tbody>
@@ -38,7 +38,7 @@
               TOTAL:
             </th>
             <th>
-              $<%= number_with_precision(@order.total_cents.to_i / 100, precision: 2) %>
+              <%= humanized_money_with_symbol (@order.total_cents.to_i * 0.01) %>
             </th>
           </tr>
         </tfoot>

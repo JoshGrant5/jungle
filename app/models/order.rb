@@ -23,8 +23,6 @@ class Order < ActiveRecord::Base
     end
   end
 
-
-
   def adjust_stock
     self.line_items.each do |item|
       product = Product.find_by(id: item.product_id)

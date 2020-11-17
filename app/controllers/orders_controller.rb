@@ -31,7 +31,6 @@ class OrdersController < ApplicationController
     charge = perform_stripe_charge
     order  = create_order(charge)
 
-    
     if order
       if order.valid?
         empty_cart!
@@ -43,6 +42,7 @@ class OrdersController < ApplicationController
         redirect_to cart_path, flash: { error: order.errors.full_messages.first }
       end
     else
+      puts 'GOING THE WRONG WAY'
       redirect_to cart_path
     end
 
@@ -88,7 +88,6 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
-  else
-  
   end
+
 end
