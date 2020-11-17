@@ -188,146 +188,146 @@ puts "Re-creating Reviews ..."
 Review.destroy_all
 
 review1 = prod1.reviews.create({
-  user_id: 1 
-  description: "They're playing the piano while flying in the plane."
+  user_id: 1, 
+  description: "They're playing the piano while flying in the plane.",
   rating: 4
 })
 
 review2 = prod1.reviews.create({
-  user_id: 2
-  description: "Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either."
+  user_id: 2,
+  description: "Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either.",
   rating: 2
 })
 
 review3 = prod2.reviews.create({
-  user_id: 1 
-  description: "Iguanas were falling out of the trees."
+  user_id: 1, 
+  description: "Iguanas were falling out of the trees.",
   rating: 5
 })
 
 review4 = prod2.reviews.create({
-  user_id: 2
-  description: "Hit me with your pet shark!"
+  user_id: 2,
+  description: "Hit me with your pet shark!",
   rating: 1
 })
 
 review5 = prod3.reviews.create({
-  user_id: 1 
-  description: "Her hair was windswept as she rode in the black convertible."
+  user_id: 1, 
+  description: "Her hair was windswept as she rode in the black convertible.",
   rating: 4
 })
 
 review6 = prod3.reviews.create({
-  user_id: 2
-  description: "He had accidentally hacked into his company's server."
+  user_id: 2,
+  description: "He had accidentally hacked into his company's server.",
   rating: 3
 })
 
 review7 = prod4.reviews.create({
-  user_id: 1 
-  description: "The complicated school homework left the parents trying to help their kids quite confused."
+  user_id: 1, 
+  description: "The complicated school homework left the parents trying to help their kids quite confused.",
   rating: 4
 })
 
 review8 = prod4.reviews.create({
-  user_id: 2
-  description: "He uses onomatopoeia as a weapon of mental destruction."
+  user_id: 2,
+  description: "He uses onomatopoeia as a weapon of mental destruction.",
   rating: 3
 })
 
 review9 = prod5.reviews.create({
-  user_id: 1 
-  description: "He had reached the point where he was paranoid about being paranoid."
+  user_id: 1, 
+  description: "He had reached the point where he was paranoid about being paranoid.",
   rating: 5
 })
 
 review10 = prod5.reviews.create({
-  user_id: 2
-  description: "If I don’t like something, I’ll stay away from it."
+  user_id: 2,
+  description: "If I don’t like something, I’ll stay away from it.",
   rating: 2
 })
 
 review11 = prod6.reviews.create({
-  user_id: 1 
-  description: "There was no telling what thoughts would come from the machine."
+  user_id: 1, 
+  description: "There was no telling what thoughts would come from the machine.",
   rating: 5
 })
 
 review12 = prod6.reviews.create({
-  user_id: 2
-  description: "Two more days and all his problems would be solved."
+  user_id: 2,
+  description: "Two more days and all his problems would be solved.",
   rating: 4
 })
 
 review13 = prod7.reviews.create({
-  user_id: 1 
-  description: "They're playing the piano while flying in the plane."
+  user_id: 1, 
+  description: "They're playing the piano while flying in the plane.",
   rating: 4
 })
 
 review14 = prod7.reviews.create({
-  user_id: 2
-  description: "Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either."
+  user_id: 2,
+  description: "Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either.",
   rating: 3
 })
 
 review15 = prod8.reviews.create({
-  user_id: 1 
-  description: "Iguanas were falling out of the trees."
+  user_id: 1, 
+  description: "Iguanas were falling out of the trees.",
   rating: 3
 })
 
 review16 = prod8.reviews.create({
-  user_id: 2
-  description: "Hit me with your pet shark!"
+  user_id: 2,
+  description: "Hit me with your pet shark!",
   rating: 1
 })
 
 review17 = prod9.reviews.create({
-  user_id: 1 
-  description: "Her hair was windswept as she rode in the black convertible."
+  user_id: 1, 
+  description: "Her hair was windswept as she rode in the black convertible.",
   rating: 4
 })
 
 review18 = prod9.reviews.create({
-  user_id: 2
-  description: "He had accidentally hacked into his company's server."
+  user_id: 2,
+  description: "He had accidentally hacked into his company's server.",
   rating: 4
 })
 
 review19 = prod10.reviews.create({
-  user_id: 1 
-  description: "The complicated school homework left the parents trying to help their kids quite confused."
+  user_id: 1, 
+  description: "The complicated school homework left the parents trying to help their kids quite confused.",
   rating: 4
 })
 
 review20 = prod10.reviews.create({
-  user_id: 2
-  description: "He uses onomatopoeia as a weapon of mental destruction."
+  user_id: 2,
+  description: "He uses onomatopoeia as a weapon of mental destruction.",
   rating: 3
 })
 
 review21 = prod11.reviews.create({
-  user_id: 1 
-  description: "He had reached the point where he was paranoid about being paranoid."
+  user_id: 1, 
+  description: "He had reached the point where he was paranoid about being paranoid.",
   rating: 5
 })
 
 review22 = prod11.reviews.create({
-  user_id: 2
-  description: "If I don’t like something, I’ll stay away from it."
+  user_id: 2,
+  description: "If I don’t like something, I’ll stay away from it.",
   rating: 4
 })
 
 review23 = prod12.reviews.create({
-  user_id: 1 
-  description: "There was no telling what thoughts would come from the machine."
+  user_id: 1, 
+  description: "There was no telling what thoughts would come from the machine.",
   rating: 5
 })
 
 review24 = prod12.reviews.create({
-  user_id: 2
-  description: "Two more days and all his problems would be solved."
+  user_id: 2,
+  description: "Two more days and all his problems would be solved.",
   rating: 4
 })
 
