@@ -38,26 +38,26 @@ RSpec.describe Order, type: :model do
     # pending test 1
     it 'deducts quantity from products based on their line item quantities only if product is included in order' do
       # 1. initialize order with necessary fields
-      @order = Order.new(
+      order = Order.new(
         email: 'test@test.ca',
         total_cents: 80000,
         stripe_charge_id: 'testid'
       )
       # 2. build line items on @order
-      @order.line_items.new(
+      order.line_items.new(
         product_id: 1,
         quantity: 2,
         item_price: 40000,
         total_price: 40000
       )
-      @order.line_items.new(
+      order.line_items.new(
         product_id: 2,
         quantity: 1,
         item_price: 40000,
         total_price: 40000
       )
       # 3. save! the order
-      @order.save!
+      order.save!
       # 4. reload products to have their updated quantities
       @product1.reload
       @product2.reload
