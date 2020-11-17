@@ -121,7 +121,7 @@ cat3.products.create!({
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
   quantity: 0,
-  price: 987.65
+  price: 987.99
 })
 
 cat3.products.create!({
@@ -129,7 +129,7 @@ cat3.products.create!({
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
   quantity: 23,
-  price: 2_483.75
+  price: 2_483.76
 })
 
 # SALES 
