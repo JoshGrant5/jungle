@@ -41,9 +41,14 @@
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-amount="<%= cart_subtotal_cents %>"
             data-name="Jungle"
-            data-description="<%= @user[0].first_name %> <%= @user[0].last_name %>'s Jungle Order"
-            data-locale="auto"
-            data-email=<%= @user[0].email %>
+            <% if @user[0] %>
+              data-description="<%= @user[0].first_name %> <%= @user[0].last_name %>'s Jungle Order"
+              data-locale="auto"
+              data-email=<%= @user[0].email %>
+            <% else %>
+              data-description="Guest's Jungle Order"
+              data-locale="auto"
+            <% end %>
             data-currency="cad">
           </script>
         <% end %>

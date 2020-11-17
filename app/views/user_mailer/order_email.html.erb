@@ -4,7 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Thank you for your order, <%= @user[0].first_name %>!</h1>
+    <% if @user[0] %>
+      <h1>Thank you for your order, <%= @user[0].first_name %>!</h1>
+    <% else %>
+      <h1>Thank you for your order!</h1>
+    <% end %>
     <p>
       You'll receive word once your order is in transit.
     </p>
