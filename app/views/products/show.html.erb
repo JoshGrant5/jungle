@@ -29,7 +29,20 @@
             <dd>$<%= @product.price %></dd>
           <% end %>
         </dl>
+
+        <div class="dl-horizontal">
+          <h3>Reviews</h3>
+          <% @reviews.each do |review| %>
+            <dt>User</dt>
+            <dd><%= review[:user][0].first_name %> <%= review[:user][0].last_name %></dd>
+            <dt>Review</dt>
+            <dd><%= review[:description] %></dd>
+            <dt>Product Rating</dt>
+            <dd><%= review[:rating] %> / 5</dd>
+          <% end %>
+        </div>
       </div>
+
     </div>
 
   </article>
