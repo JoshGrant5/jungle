@@ -34,6 +34,7 @@
         <div class="dl-horizontal">
           <h3>Reviews</h3>
 
+          <% if @user %>
             <%= form_for :products, url: "/products/#{@product.id}/reviews" do |f| %>
               <div class="form-label-group">
                 Make a Review: <%= f.text_field :description, class: 'form-control', required: 'required' %>
@@ -44,6 +45,7 @@
               <%= submit_tag "Submit", class: 'btn btn-lg btn-primary btn-block' %>
             <% end %>
             <br>
+          <% end %>
 
           <% @reviews.each do |review| %>
             <dt>User</dt>

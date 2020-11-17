@@ -7,10 +7,11 @@ class ReviewsController < ApplicationController
       rating: review_params[:rating].to_i,
       user_id: current_user.id
     )
+
     if review.save!
-      redirect_to "/products/#{params[:product_id]}"
+      redirect_to "/products/#{params[:product_id]}", notice: 'Review created!'
     else
-      redirect_to "/products/#{@product.id}"
+      redirect_to "/products/#{params[:product_id]}", notice: 'Could not add review'
     end
   end
 
