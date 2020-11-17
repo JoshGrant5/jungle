@@ -58,14 +58,6 @@ RSpec.describe Order, type: :model do
       )
       # 3. save! the order
       @order.save!
-
-      
-      line_items.each do |item|
-        product = Product.find_by(id: item.product_id)
-        product.quantity -= item.quantity
-        product.save
-      end
-
       # 4. reload products to have their updated quantities
       @product1.reload
       @product2.reload
