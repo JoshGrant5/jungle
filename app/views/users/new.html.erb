@@ -3,27 +3,16 @@
     <div class="col-lg-5 mx-auto">
       <div class="card card-signin my-5">
         <div class="card-body">
-          <h1 class="card-title text-center">Sign Up!</h1>
+          <h1 class="text-center">Sign Up!</h1>
 
           <%= form_for :user, url: '/users' do |f| %>
-
-            <div class="form-label-group">
-                First Name: <%= f.text_field :first_name, class: 'form-control', required: 'required' %>
-            </div>
-            <div class="form-label-group">
-              Last Name: <%= f.text_field :last_name, class: 'form-control', required: 'required' %>
-            </div>
-            <div class="form-label-group">
-              Email: <%= f.text_field :email, class: 'form-control', required: 'required' %>
-            </div>
-            <div class="form-label-group">
-              Password: <%= f.password_field :password, class: 'form-control', required: 'required' %>
-            </div>
-            <div class="form-label-group">
-              Password Confirmation: <%= f.password_field :password_confirmation, class: 'form-control', required: 'required' %>
-            </div>
+            First Name: <%= f.text_field :first_name, class: 'form-control', required: 'required' %>
+            Last Name: <%= f.text_field :last_name, class: 'form-control', required: 'required' %>
+            Email: <%= f.text_field :email, class: 'form-control', required: 'required' %>
+            Password: <%= f.password_field :password, class: 'form-control', required: 'required' %>
+            Password Confirmation: <%= f.password_field :password_confirmation, class: 'form-control', required: 'required' %>
+            <br>
             <%= f.submit "Sign Up", class: 'btn btn-lg btn-primary btn-block' %>
-
           <% end %>
         </div>
       </div>

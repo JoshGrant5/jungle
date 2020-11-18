@@ -4,18 +4,13 @@
     <div class="col-lg-5 mx-auto">
       <div class="card card-signin my-5">
         <div class="card-body">
-          <h1 class="card-title text-center">Login</h1>
+          <h1 class="text-center">Login</h1>
 
           <%= form_for :session, url: '/login' do |f| %>
-
-            <div class="form-label-group">
-              Email: <%= f.text_field :email, class: 'form-control', required: 'required' %>
-            </div>
-            <div class="form-label-group">
-              Password: <%= f.password_field :password, class: 'form-control', required: 'required' %>
-            </div>
+            Email: <%= f.text_field :email, class: 'form-control', required: 'required' %>
+            Password: <%= f.password_field :password, class: 'form-control', required: 'required' %>
+            <br>
             <%= submit_tag "Submit", class: 'btn btn-lg btn-primary btn-block' %>
-
           <% end %>
         </div>
       </div>
