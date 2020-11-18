@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h1 class="text-center">Create New Sale!</h1>
+
+          <%= form_for :user, url: '/users' do |f| %>
+            Sale Name: <%= f.text_field :name, class: 'form-control', required: 'required' %>
+            Discount (%): <%= f.number_field :percent_off, class: 'form-control', required: 'required' %>
+            Start Date: <%= f.date_field :starts_on, class: 'form-control', required: 'required' %>
+            End Date: <%= f.date_field :ends_on, class: 'form-control', required: 'required' %>
+            <br>
+            <%= f.submit "Create", class: 'btn btn-lg btn-primary btn-block' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
