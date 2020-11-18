@@ -46,23 +46,27 @@
             <% end %>
             <br>
           <% end %>
-
+          <table class='table'>
           <% @reviews.each do |review| %>
-            <dt>User</dt>
-            <dd><%= review[:user][0].first_name %> <%= review[:user][0].last_name %></dd>
-            <dt>Review</dt>
-            <dd><%= review[:description] %></dd>
-            <dt>Product Rating</dt>
-            <dd><%= review[:rating] %> / 5</dd>
-            <dt>Date Reviewed</dt>
-            <dd>
-            <%= review[:created_at] %>
-            <% if @user && @user == review[:user][0].id %>
-               <%= link_to fa_icon('trash'), "/products/#{@product.id}/reviews/#{review[:id]}", method: :delete, class: 'btn btn-danger', data: {   confirm: "Are you sure?" } %>
-            <% end %>
-            </dd>
-            <br>
+            <tr>
+              <td>
+                <dt>User</dt>
+                <dd><%= review[:user][0].first_name %> <%= review[:user][0].last_name %></dd>
+                <dt>Review</dt>
+                <dd><%= review[:description] %></dd>
+                <dt>Product Rating</dt>
+                <dd><%= review[:rating] %> / 5</dd>
+                <dt>Date Reviewed</dt>
+                <dd><%= review[:created_at] %></dd>
+                <% if @user && @user == review[:user][0].id %>
+                  <br>
+                  <dt>Delete Review</dt>
+                  <dd><%= link_to fa_icon('trash'), "/products/#{@product.id}/reviews/#{review[:id]}", method: :delete, class: 'btn btn-danger', data: {   confirm: "Are you sure?" } %></dd>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
+          </table>
         </div>
       </div>
 
