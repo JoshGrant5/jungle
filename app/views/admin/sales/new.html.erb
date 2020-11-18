@@ -5,7 +5,7 @@
         <div class="card-body">
           <h1 class="text-center">Create New Sale!</h1>
 
-          <%= form_for :user, url: '/users' do |f| %>
+          <%= form_for :sale, url: '/admin/sales/new' do |f| %>
             Sale Name: <%= f.text_field :name, class: 'form-control', required: 'required' %>
             Discount (%): <%= f.number_field :percent_off, class: 'form-control', required: 'required' %>
             Start Date: <%= f.date_field :starts_on, class: 'form-control', required: 'required' %>

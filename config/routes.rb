@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]
     resources :sales, only: [:index, :new]
+
+    post '/sales/new' => 'sales#create'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
