@@ -2,19 +2,30 @@
 
 A mini e-commerce application built with Ruby on Rails. This app uses Rails 4.2.6 for the purpose of simulating a workplace scenario of inheriting a codebase that is x-amount of years old with older versions of its frameworks.
 
+*Created in Weeks 9 and 10 of Lighthouse Labs Web Development Bootcamp.*
+
 ## Walkthrough 
 
-### Responsive navbar showing the number of spots available for each day.
-![view days](https://github.com/JoshGrant5/interview-scheduler/blob/master/public/images/gifs/view-days.gif) 
+### Customers can add products to their cart.
+![index](https://github.com/JoshGrant5/jungle/blob/master/public/screenshots/Screen%20Shot%202020-11-18%20at%209.33.18%20AM.png) 
 
-### Select a timeslot to book an appointment and decrese spots remaining for that day.
-![book appointment](https://github.com/JoshGrant5/interview-scheduler/blob/master/public/images/gifs/book-appointment.gif) 
+### Customer reviews their cart before confirming order.
+![review cart](https://github.com/JoshGrant5/jungle/blob/master/public/screenshots/Screen%20Shot%202020-11-18%20at%209.35.02%20AM.png) 
 
-### Edit an existing appointment with no change to spots remaining for that day.
-![edit appointment](https://github.com/JoshGrant5/interview-scheduler/blob/master/public/images/gifs/edit-appointment.gif) 
+### Customers pay for their order using Stripe prompt.
+![stripe charge](https://github.com/JoshGrant5/jungle/blob/master/public/screenshots/Screen%20Shot%202020-11-18%20at%209.35.56%20AM.png) 
 
-### Delete an appointment and increase spots remaining for that day.
-![delete appointment](https://github.com/JoshGrant5/interview-scheduler/blob/master/public/images/gifs/delete-appointment.gif) 
+### Customers are shown their order confirmation and summary.
+![order confirmation](https://github.com/JoshGrant5/jungle/blob/master/public/screenshots/Screen%20Shot%202020-11-18%20at%209.36.23%20AM.png) 
+
+### Admin can view all sales and add a new sale.
+![admin sale](https://github.com/JoshGrant5/jungle/blob/master/public/screenshots/Screen%20Shot%202020-11-18%20at%209.37.03%20AM.png) 
+
+### Admin can view all products listed and add a new product.
+![admin add product](https://github.com/JoshGrant5/jungle/blob/master/public/screenshots/Screen%20Shot%202020-11-18%20at%209.37.26%20AM.png) 
+
+### Leave a review for a product and view other users' reviews.
+![review product](https://github.com/JoshGrant5/jungle/blob/master/public/screenshots/Screen%20Shot%202020-11-18%20at%209.38.05%20AM.png) 
 
 ## Setup
 
