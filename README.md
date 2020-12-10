@@ -2,6 +2,19 @@
 
 A mini e-commerce application built with Ruby on Rails. This app uses Rails 4.2.6 for the purpose of simulating a workplace scenario of inheriting a codebase that is x-amount of years old with older versions of its frameworks.
 
+## Tech Stack
+Front End:
+- ERB
+
+Back End:
+- Ruby on Rails
+- PostgreSQL
+
+Testing:
+- RSpec
+- Capybara
+- Poltergeist
+
 *Created in Weeks 9 and 10 of Lighthouse Labs Web Development Bootcamp.*
 
 ## Walkthrough 
